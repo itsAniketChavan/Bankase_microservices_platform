@@ -1,0 +1,43 @@
+
+server:
+  port: 8080   # change to any port you want
+
+spring:
+  application:
+    name: accounts
+  datasource:
+    url: jdbc:h2:mem:testdb   # in-memory H2 database
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true          # enable H2 web console
+      path: /h2-console      # access at http://localhost:8080/h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update        # options: create, create-drop, update, validate, none
+    show-sql: true            # logs SQL statements in console
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+
+  profiles:
+    active:
+      "qa"
+
+
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to EazyBank accounts related local APIs "
+  contactDetails:
+    name: "Aniket - Developer"
+    email: "ani@gmail.com"
+  onCallSupport:
+    - 99999999999
+    - 99999999999

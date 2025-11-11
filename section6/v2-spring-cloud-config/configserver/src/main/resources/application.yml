@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: configserver   # This is the Config Server name
+
+  profiles:
+    #  Native approach (local files inside the project OR external directory)
+    # active: native
+
+    #  Git approach (properties/yml files stored in a Git repo)
+    active: git
+
+  cloud:
+    config:
+      server:
+        # -------------------------------
+        # Native - Config files in classpath or file system
+        # Enable this when using: active: native
+        # -------------------------------
+        # native:
+        #   # Method 1: Place config files inside project (src/main/resources/config)
+        #   search-locations: "classpath:/config"
+        #
+        #   # Method 2: Place config files in external folder on your machine
+        #   search-locations: "file:///C:/Users/Aniket Chavan/Documents/config"
+
+        # -------------------------------
+        #  Git - Config files from GitHub (most common in real projects)
+        # Enable this when using: active: git
+        # -------------------------------
+        git:
+          uri: https://github.com/itsAniketChavan/aniket_config.git   # Git repo URL
+          default-label: main      # Branch name (default is 'main' or 'master')
+          timeout: 5               # Connection timeout in seconds
+          clone-on-start: true     # Clone repo as soon as server starts
+          force-pull: true         # Always pull latest changes on restart
+
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+
+
+encrypt:
+  key: "EbwhnX0KJhSJCDhHHLw7vewNKBHucbvW"
+
+server:
+  port: 8071   # Config server will run on this port
