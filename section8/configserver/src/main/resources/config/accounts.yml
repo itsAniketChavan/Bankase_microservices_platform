@@ -1,0 +1,12 @@
+
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to EazyBank accounts related local APIs "
+  contactDetails:
+    name: "Aniket - Developer"
+    email: "ani@gmail.com"
+  onCallSupport:
+    - 99999999999
+    - 99999999999
