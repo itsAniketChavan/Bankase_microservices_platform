@@ -1,0 +1,12 @@
+
+build:
+  version: "3.0"
+
+loans:
+  message: "Welcome to EazyBank loans related prod APIs "
+  contactDetails:
+    name: "Dragos Lech - Developer"
+    email: "dragos@eazybank.com"
+  onCallSupport:
+    - (412) 419-3491
+    - (915) 382-1932
